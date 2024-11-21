@@ -338,7 +338,7 @@ const handlePlantsClick = (e) => {
 
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping}s />
+    <CartItem onContinueShopping={handleContinueShopping} onUpdateCart={setAddedToCart} />
 )}
     </div>
     );
