@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 import { addItem } from './CartSlice';
 import { useDispatch ,useSelector} from 'react-redux';
 
-function ProductList(onClick) {
+function ProductList() {
     const [addedToCart, setAddedToCart] = useState({});
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
@@ -261,14 +261,6 @@ const handlePlantsClick = (e) => {
         ...prevState,
         [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
       }));
-    //   const handleRemoveFromCart = (product) => {
-    //     dispatch(removeItem(product)); // Assuming you have a `removeItem` action in your slice
-    //     setAddedToCart((prevState) => {
-    //         const updatedState = { ...prevState };
-    //         delete updatedState[product.name]; // Remove the product from the addedToCart state
-    //         return updatedState;
-    //     });
-    //};
     
    
    
@@ -308,7 +300,7 @@ const handlePlantsClick = (e) => {
                             )}</a></div>
             </div>
         </div>
-        {!showPlants ?  handleContinueShopping :""}
+        
         {!showCart? (
         <div className="product-grid">
 
