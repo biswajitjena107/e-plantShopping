@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 import { addItem } from './CartSlice';
 import { useDispatch ,useSelector} from 'react-redux';
 
-function ProductList() {
+function ProductList(onClick) {
     const [addedToCart, setAddedToCart] = useState({});
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
@@ -243,13 +243,14 @@ const cartCount = useSelector((state) => state.cart.items.length);
 };
 const handlePlantsClick = (e) => {
     e.preventDefault();
-    setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
+    setShowPlants(false); // Set showAboutUs to true when "About Us" link is clicked
     setShowCart(false); // Hide the cart when navigating to About Us
 };
 
    const handleContinueShopping = (e) => {
     e.preventDefault();
     setShowCart(false);
+    setShowPlants(false);
   };
 
   const handleAddToCart = (product) => {
@@ -307,6 +308,7 @@ const handlePlantsClick = (e) => {
                             )}</a></div>
             </div>
         </div>
+        {!showPlants ?  handleContinueShopping :""}
         {!showCart? (
         <div className="product-grid">
 
@@ -338,7 +340,7 @@ const handlePlantsClick = (e) => {
 
         </div>
  ) :  (
-    <CartItem onContinueShopping={handleContinueShopping} onUpdateCart={setAddedToCart} />
+    <CartItem onContinueShopping={ handleContinueShopping} onUpdateCart={setAddedToCart} />
 )}
     </div>
     );
