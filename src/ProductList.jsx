@@ -248,10 +248,12 @@ function ProductList({ setShowProductList }) {
     };
 
     const handleLogoClick = (e) => {
+        
         e.preventDefault();
         setShowPlants(false);
         setShowCart(false);
         setShowProductList(false);
+        
     }
 
     const handleContinueShopping = (e) => {

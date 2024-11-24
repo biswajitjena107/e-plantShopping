@@ -7,6 +7,11 @@ const CartItem = ({ onContinueShopping, onUpdateCart, handleLogoClick }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
 
+
+  const handleCheckoutShopping = (e) => {
+    alert('🚀 Coming Soon! New features are on the way. Stay tuned for updates!');
+};
+
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
     return cart.reduce((total, item) => {
@@ -71,7 +76,7 @@ const CartItem = ({ onContinueShopping, onUpdateCart, handleLogoClick }) => {
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={(e) => onContinueShopping(e)}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1" onClick={(e) => handleLogoClick(e)} >Checkout</button>
+        <button className="get-started-button1" onClick={(e) => handleCheckoutShopping(e)} >Checkout</button>
       </div>
     </div>
   );
